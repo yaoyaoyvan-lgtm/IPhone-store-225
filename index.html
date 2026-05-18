@@ -130,4 +130,138 @@
         .product-image img {
             max-width: 100%;
             max-height: 100%;
+            object-fit: contain;
+        }
 
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Badge Wi-Fi Spécifique */
+        .wifi-badge {
+            display: inline-block;
+            background-color: #fff3cd;
+            color: #856404;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin: 8px auto 15px auto;
+            width: fit-content;
+        }
+
+        .wifi-badge i {
+            margin-right: 5px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #0071e3;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #005bb5;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #111;
+            color: #86868b;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">iPhone Store <span>225</span> 📱</div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Bienvenue sur iPhone Store 225</h1>
+        <p>Votre boutique de confiance d'iPhones version Wi-Fi en Côte d'Ivoire</p>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Nos Offres (Modèles Wi-Fi)</h2>
+        
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1573148195900-7845dcb9b127?auto=format&fit=crop&w=400&q=80" alt="iPhone 11">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">iPhone 11</div>
+                    <div class="wifi-badge"><i class="fas fa-wifi"></i> Wi-Fi uniquement</div>
+                    <div class="product-price">150 000 FCFA</div>
+                    <button class="btn-buy">Acheter</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=400&q=80" alt="iPhone 12">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">iPhone 12</div>
+                    <div class="wifi-badge"><i class="fas fa-wifi"></i> Wi-Fi uniquement</div>
+                    <div class="product-price">220 000 FCFA</div>
+                    <button class="btn-buy">Acheter</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=400&q=80" alt="iPhone 13">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">iPhone 13</div>
+                    <div class="wifi-badge"><i class="fas fa-wifi"></i> Wi-Fi uniquement</div>
+                    <div class="product-price">300 000 FCFA</div>
+                    <button class="btn-buy">Acheter</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 iPhone Store 225 - Bons plans iPhones Wi-Fi.</p>
+    </footer>
+
+</body>
+</html>
