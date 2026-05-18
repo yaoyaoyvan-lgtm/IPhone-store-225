@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iStore 225 - Gamme Complète Wi-Fi</title>
+    <title>iStore 225 - iPhones Wi-Fi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
@@ -18,7 +18,7 @@
             color: #333;
         }
 
-        /* --- Header --- */
+        /* --- En-tête du site --- */
         header {
             background-color: #ffffff;
             padding: 12px 15px;
@@ -29,6 +29,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .logo span {
+            color: #ff5000;
         }
 
         .search-bar-container {
@@ -55,17 +65,7 @@
             color: #666;
         }
 
-        .logo {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #111;
-        }
-
-        .logo span {
-            color: #ff5000;
-        }
-
-        /* --- Liste des produits style Application --- */
+        /* --- Liste de style Application Mobile --- */
         .products-list {
             max-width: 600px;
             margin: 0 auto;
@@ -74,15 +74,16 @@
 
         .product-row {
             display: flex;
-            padding: 12px;
+            padding: 15px 12px;
             border-bottom: 1px solid #f0f0f0;
             align-items: center;
         }
 
+        /* Cadre pour la photo de dos */
         .image-container {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 115px;
             background-color: #f9f9f9;
             border-radius: 8px;
             overflow: hidden;
@@ -90,11 +91,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid #eee;
         }
 
         .image-container img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 85%;
+            max-height: 85%;
             object-fit: contain;
         }
 
@@ -103,48 +105,58 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(120, 120, 120, 0.85);
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             text-align: center;
-            font-size: 0.7rem;
-            padding: 3px 0;
-            font-weight: 500;
+            font-size: 0.65rem;
+            padding: 2px 0;
+            font-weight: bold;
         }
 
+        /* Détails du produit à droite */
         .product-details {
             flex-grow: 1;
-            padding-left: 12px;
+            padding-left: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 110px;
+            height: 115px;
         }
 
-        .title-section h3 {
-            font-size: 0.95rem;
+        .product-title {
+            font-size: 1rem;
             font-weight: 600;
             color: #222;
-            line-height: 1.3;
-            margin-bottom: 4px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
-        .tags {
+        .product-subtitle {
+            font-size: 0.8rem;
+            color: #ff5000;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Options de mémoire (Go) */
+        .storage-options {
             display: flex;
             gap: 5px;
-            margin-bottom: 5px;
-            flex-wrap: wrap;
+            margin-top: 5px;
         }
 
-        .tag-wifi {
+        .storage-btn {
             font-size: 0.75rem;
+            padding: 2px 8px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background-color: #fff;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .storage-btn.active {
+            border-color: #ff5000;
+            color: #ff5000;
             background-color: #fff0ed;
-            color: #ff4400;
-            padding: 2px 6px;
-            border-radius: 4px;
             font-weight: 500;
         }
 
@@ -155,39 +167,29 @@
         }
 
         .price-container {
-            color: #ff4400;
-            font-size: 1.2rem;
+            color: #111;
+            font-size: 1.15rem;
             font-weight: bold;
         }
 
-        .price-container span {
-            font-size: 0.8rem;
-            margin-left: 2px;
-        }
-
         .btn-order {
-            background-color: #ff5000;
+            background-color: #111;
             color: white;
             border: none;
-            padding: 6px 14px;
-            border-radius: 15px;
+            padding: 6px 16px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-order:hover {
-            background-color: #e04400;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">iStore<span>225</span></div>
+        <div class="logo">iStore<span>225</span> 📱</div>
         <div class="search-bar-container">
-            <input type="text" placeholder="Rechercher un modèle...">
+            <input type="text" placeholder="iphone 13">
             <i class="fas fa-camera"></i>
         </div>
         <i class="fas fa-shopping-cart" style="font-size: 1.2rem; color: #555;"></i>
@@ -197,16 +199,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1573148195900-7845dcb9b127?auto=format&fit=crop&w=200&q=80" alt="iPhone 11">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1573148195900-7845dcb9b127?auto=format&fit=crop&w=150&q=80" alt="iPhone 11">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 11 - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 11</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">64 Go</span>
+                        <span class="storage-btn">128 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">150 000<span>FCFA</span></div>
+                    <div class="price-container">150 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -214,16 +220,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1596701196417-76b3c162f436?auto=format&fit=crop&w=200&q=80" alt="iPhone 11 Pro">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1596701196417-76b3c162f436?auto=format&fit=crop&w=150&q=80" alt="iPhone 11 Pro">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 11 Pro - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 11 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">64 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">190 000<span>FCFA</span></div>
+                    <div class="price-container">190 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -231,16 +241,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1596701196417-76b3c162f436?auto=format&fit=crop&w=200&q=80" alt="iPhone 11 Pro Max">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1596701196417-76b3c162f436?auto=format&fit=crop&w=150&q=80" alt="iPhone 11 Pro Max">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 11 Pro Max - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 11 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">64 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">230 000<span>FCFA</span></div>
+                    <div class="price-container">230 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -248,16 +262,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=200&q=80" alt="iPhone 12">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=150&q=80" alt="iPhone 12">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 12 - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 12</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">64 Go</span>
+                        <span class="storage-btn">128 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">220 000<span>FCFA</span></div>
+                    <div class="price-container">220 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -265,16 +283,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=200&q=80" alt="iPhone 12 Pro">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=150&q=80" alt="iPhone 12 Pro">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 12 Pro - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 12 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">260 000<span>FCFA</span></div>
+                    <div class="price-container">260 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -282,16 +304,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=200&q=80" alt="iPhone 12 Pro Max">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=150&q=80" alt="iPhone 12 Pro Max">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 12 Pro Max - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 12 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">300 000<span>FCFA</span></div>
+                    <div class="price-container">300 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -299,16 +325,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=200&q=80" alt="iPhone 13">
-                <div class="status-badge">Stock Limité 🔥</div>
+                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 13 - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 13</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">300 000<span>FCFA</span></div>
+                    <div class="price-container">300 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -316,16 +346,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=200&q=80" alt="iPhone 13 Pro">
-                <div class="status-badge">Stock Limité 🔥</div>
+                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13 Pro">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 13 Pro - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 13 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">350 000<span>FCFA</span></div>
+                    <div class="price-container">350 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -333,16 +367,21 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=200&q=80" alt="iPhone 13 Pro Max">
-                <div class="status-badge">Stock Limité 🔥</div>
+                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13 Pro Max">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 13 Pro Max - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 13 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">400 000<span>FCFA</span></div>
+                    <div class="price-container">400 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -350,16 +389,20 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=200&q=80" alt="iPhone 14">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 14 - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 14</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">380 000<span>FCFA</span></div>
+                    <div class="price-container">380 000 FCFA</div>
                     <button class="btn-order">Acheter</button>
                 </div>
             </div>
@@ -367,14 +410,244 @@
 
         <div class="product-row">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=200&q=80" alt="iPhone 14 Pro">
-                <div class="status-badge">Disponible 🇨🇮</div>
+                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14 Pro">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div class="title-section">
-                    <h3>Apple iPhone 14 Pro - Version Wi-Fi</h3>
-                    <div class="tags"><span class="tag-wifi"><i class="fas fa-wifi"></i> Wi-Fi</span></div>
+                <div>
+                    <h3 class="product-title">iPhone 14 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
                 </div>
                 <div class="price-buy-section">
-                    <div class="price-container">450 0
+                    <div class="price-container">450 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14 Pro Max">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 14 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">520 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 15</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">480 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15 Pro">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 15 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">580 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15 Pro Max">
+                <div class="status-badge">Stock Limité 🇨🇮</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 15 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                        <span class="storage-btn">1 To</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">680 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16">
+                <div class="status-badge">Sur Commande 📦</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 16</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">600 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16 Pro">
+                <div class="status-badge">Sur Commande 📦</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 16 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">750 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16 Pro Max">
+                <div class="status-badge">Sur Commande 📦</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 16 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                        <span class="storage-btn">1 To</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">850 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17">
+                <div class="status-badge">Précommande 🚀</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 17</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">750 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17 Pro">
+                <div class="status-badge">Précommande 🚀</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 17 Pro</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">128 Go</span>
+                        <span class="storage-btn">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">900 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17 Pro Max">
+                <div class="status-badge">Précommande 🚀</div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <h3 class="product-title">iPhone 17 Pro Max</h3>
+                    <p class="product-subtitle">Version Wi-Fi uniquement</p>
+                    <div class="storage-options">
+                        <span class="storage-btn active">256 Go</span>
+                        <span class="storage-btn">512 Go</span>
+                        <span class="storage-btn">1 To</span>
+                    </div>
+                </div>
+                <div class="price-buy-section">
+                    <div class="price-container">1 000 000 FCFA</div>
+                    <button class="btn-order">Acheter</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
 
