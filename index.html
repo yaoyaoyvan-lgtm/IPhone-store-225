@@ -3,9 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <title>iPhone Store 225</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      color: #111;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 200px;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+
+    button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 8px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  </style>
+
 </head>
+
 <body>
+
   <h1>Bienvenue sur iPhone Store 225 📱</h1>
   <p>Votre boutique en ligne de téléphones</p>
+
+  <div class="container">
+
+    <div class="card">
+      <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg">
+      <p>iPhone 11</p>
+      <p class="price">150 000 FCFA</p>
+      <button>Acheter</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg">
+      <p>iPhone 12</p>
+      <p class="price">220 000 FCFA</p>
+      <button>Acheter</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg">
+      <p>iPhone 13</p>
+      <p class="price">300 000 FCFA</p>
+      <button>Acheter</button>
+    </div>
+
+  </div>
+
 </body>
 </html>
