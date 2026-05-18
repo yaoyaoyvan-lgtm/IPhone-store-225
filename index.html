@@ -162,7 +162,7 @@
             font-weight: 600;
         }
 
-        /* --- FENÊTRE MODALE (Style Play Store) --- */
+        /* --- FENÊTRE MODALE --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -258,7 +258,6 @@
             margin-bottom: 20px;
         }
 
-        /* Sélecteurs options */
         .option-section {
             margin-bottom: 15px;
         }
@@ -273,6 +272,7 @@
         .storage-group, .color-group {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .chip-btn {
@@ -291,36 +291,42 @@
             font-weight: 600;
         }
 
-        /* Boutons de couleur */
+        /* Boutons ronds de couleur */
         .color-dot {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             border: 2px solid #ddd;
             cursor: pointer;
             position: relative;
+            transition: transform 0.2s;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.1);
         }
 
         .color-dot.active {
             border-color: #ff5000;
+            box-shadow: 0 0 5px rgba(255, 80, 0, 0.4);
         }
 
         .color-dot.active::after {
             content: "\f00c";
-            font-family: "Font Awesome 5 Free";
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             color: white;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        .color-dot.active.white-dot::after {
+
+        .color-dot.active.light-dot::after {
             color: #333;
         }
 
-        /* Pied de la modale */
         .modal-actions {
             display: flex;
             gap: 10px;
@@ -365,7 +371,9 @@
 
     <div class="products-list">
 
-        <div class="product-row" onclick="openModal('iPhone 11', '150 000 FCFA', 'https://i.ibb.co/3mSgNf6/Screenshot-20260518-085558.jpg', ['64 Go', '128 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 11', '150 000 FCFA', [
+            { name: 'Noir', code: '#1c1c1e', img: 'https://i.ibb.co/3mSgNf6/Screenshot-20260518-085558.jpg' }
+        ], ['64 Go', '128 Go'])">
             <div class="image-container">
                 <img src="https://i.ibb.co/3mSgNf6/Screenshot-20260518-085558.jpg" alt="iPhone 11">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
@@ -376,7 +384,10 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 11 Pro', '190 000 FCFA', 'https://i.ibb.co/6P9L30N/Screenshot-20260518-085713.jpg', ['64 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 11 Pro', '190 000 FCFA', [
+            { name: 'Argent', code: '#f2f2f2', img: 'https://i.ibb.co/6P9L30N/Screenshot-20260518-085713.jpg', isLight: true },
+            { name: 'Or', code: '#f4e0c4', img: 'https://i.ibb.co/6wX98fS/104d0e3d-cf93-41c0-b632-7d4bd1544d19.jpg', isLight: true }
+        ], ['64 Go', '256 Go'])">
             <div class="image-container">
                 <img src="https://i.ibb.co/6P9L30N/Screenshot-20260518-085713.jpg" alt="iPhone 11 Pro">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
@@ -387,20 +398,11 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 11 Pro Max', '230 000 FCFA', 'https://i.ibb.co/6P9L30N/Screenshot-20260518-085713.jpg', ['64 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 12', '220 000 FCFA', [
+            { name: 'Noir', code: '#1c1c1e', img: 'https://i.ibb.co/GWT44P8/b43450a0-16ed-4921-b8b4-64a345d79ffa.jpg' }
+        ], ['64 Go', '128 Go'])">
             <div class="image-container">
-                <img src="https://i.ibb.co/6P9L30N/Screenshot-20260518-085713.jpg" alt="iPhone 11 Pro Max">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 11 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">230 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 12', '220 000 FCFA', 'https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=300&q=80', ['64 Go', '128 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e83f9?auto=format&fit=crop&w=150&q=80" alt="iPhone 12">
+                <img src="https://i.ibb.co/GWT44P8/b43450a0-16ed-4921-b8b4-64a345d79ffa.jpg" alt="iPhone 12">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
@@ -409,9 +411,12 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 12 Pro', '260 000 FCFA', 'https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 12 Pro', '260 000 FCFA', [
+            { name: 'Bleu Pacifique', code: '#33505a', img: 'https://i.ibb.co/mSZg6tQ/2511d84e-5303-4cc3-9255-10bd2f8e6638.jpg' },
+            { name: 'Or', code: '#f4e0c4', img: 'https://i.ibb.co/tqnS716/34279bf5-cf1f-4909-a422-8a1ab8cfd7c0.jpg', isLight: true }
+        ], ['128 Go', '256 Go'])">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=150&q=80" alt="iPhone 12 Pro">
+                <img src="https://i.ibb.co/mSZg6tQ/2511d84e-5303-4cc3-9255-10bd2f8e6638.jpg" alt="iPhone 12 Pro">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
@@ -420,20 +425,11 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 12 Pro Max', '300 000 FCFA', 'https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 13', '300 000 FCFA', [
+            { name: 'Blanc', code: '#fbfbfc', img: 'https://i.ibb.co/q7347g3/92ca99e9-6b0f-4c87-a528-0a139ab52f6e.jpg', isLight: true }
+        ], ['128 Go', '256 Go'])">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?auto=format&fit=crop&w=150&q=80" alt="iPhone 12 Pro Max">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 12 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">300 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 13', '300 000 FCFA', 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13">
+                <img src="https://i.ibb.co/q7347g3/92ca99e9-6b0f-4c87-a528-0a139ab52f6e.jpg" alt="iPhone 13">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
@@ -442,20 +438,11 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 13 Pro', '350 000 FCFA', 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 13 Pro Max', '400 000 FCFA', [
+            { name: 'Or', code: '#f4e0c4', img: 'https://i.ibb.co/bgsrPjZ/a24d7d07-0ede-481b-b867-8badaf2e30b3.jpg', isLight: true }
+        ], ['128 Go', '256 Go'])">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13 Pro">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 13 Pro</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">350 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 13 Pro Max', '400 000 FCFA', 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go', '512 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=150&q=80" alt="iPhone 13 Pro Max">
+                <img src="https://i.ibb.co/bgsrPjZ/a24d7d07-0ede-481b-b867-8badaf2e30b3.jpg" alt="iPhone 13 Pro Max">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
@@ -464,211 +451,13 @@
             </div>
         </div>
 
-        <div class="product-row" onclick="openModal('iPhone 14', '380 000 FCFA', 'https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
+        <div class="product-row" onclick="openModal('iPhone 14', '380 000 FCFA', [
+            { name: 'Mauve', code: '#e3dbf0', img: 'https://i.ibb.co/2NtcNf1/sc.jpg', isLight: true }
+        ], ['128 Go', '256 Go'])">
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14">
+                <img src="https://i.ibb.co/2NtcNf1/sc.jpg" alt="iPhone 14">
                 <div class="status-badge">Stock Limité 🇨🇮</div>
             </div>
             <div class="product-details">
-                <div><h3 class="product-title">iPhone 14</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">380 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 14 Pro', '450 000 FCFA', 'https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14 Pro">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 14 Pro</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">450 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 14 Pro Max', '520 000 FCFA', 'https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go', '512 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?auto=format&fit=crop&w=150&q=80" alt="iPhone 14 Pro Max">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 14 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">520 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 15', '480 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 15</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">480 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 15 Pro', '580 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go', '512 Go'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15 Pro">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 15 Pro</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">580 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 15 Pro Max', '680 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['256 Go', '512 Go', '1 To'], 'Stock Limité 🇨🇮')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 15 Pro Max">
-                <div class="status-badge">Stock Limité 🇨🇮</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 15 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">680 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 16', '600 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Sur Commande 📦')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16">
-                <div class="status-badge">Sur Commande 📦</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 16</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">600 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 16 Pro', '750 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go', '512 Go'], 'Sur Commande 📦')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16 Pro">
-                <div class="status-badge">Sur Commande 📦</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 16 Pro</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">750 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 16 Pro Max', '850 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['256 Go', '512 Go', '1 To'], 'Sur Commande 📦')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 16 Pro Max">
-                <div class="status-badge">Sur Commande 📦</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 16 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">850 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 17', '750 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go'], 'Précommande 🚀')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17">
-                <div class="status-badge">Précommande 🚀</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 17</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">750 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 17 Pro', '900 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['128 Go', '256 Go', '512 Go'], 'Précommande 🚀')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17 Pro">
-                <div class="status-badge">Précommande 🚀</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 17 Pro</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">900 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-        <div class="product-row" onclick="openModal('iPhone 17 Pro Max', '1 000 000 FCFA', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=300&q=80', ['256 Go', '512 Go', '1 To'], 'Précommande 🚀')">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=150&q=80" alt="iPhone 17 Pro Max">
-                <div class="status-badge">Précommande 🚀</div>
-            </div>
-            <div class="product-details">
-                <div><h3 class="product-title">iPhone 17 Pro Max</h3><p class="product-subtitle">Version Wi-Fi uniquement</p></div>
-                <div class="price-buy-section"><div class="price-container">1 000 000 FCFA</div><button class="btn-order">Acheter</button></div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" onclick="document.getElementById('productModal').classList.remove('active')">&times;</button>
-            
-            <div class="modal-image-box">
-                <img id="modalImg" src="" alt="iPhone">
-            </div>
-
-            <h2 class="modal-title" id="modalTitle">iPhone</h2>
-            <div class="modal-price" id="modalPrice">0 FCFA</div>
-
-            <div class="modal-description">
-                <strong>iPhone Wi-Fi Neuve</strong> disponible à <strong>Yamoussoukro</strong>.<br>
-                Une navigation fluide et intéressante. En excellent état de fonctionnement.
-            </div>
-
-            <div class="option-section">
-                <div class="option-title">Mémoire</div>
-                <div class="storage-group" id="modalStorageGroup"></div>
-            </div>
-
-            <div class="option-section">
-                <div class="option-title">Couleur</div>
-                <div class="color-group">
-                    <div class="color-dot active" style="background-color: #1c1c1e;" onclick="selectColor(this)" title="Noir"></div>
-                    <div class="color-dot" style="background-color: #e11a2a;" onclick="selectColor(this)" title="Rouge"></div>
-                    <div class="color-dot white-dot" style="background-color: #fbfbfc;" onclick="selectColor(this)" title="Blanc"></div>
-                </div>
-            </div>
-
-            <div class="modal-actions">
-                <button class="btn-modal-cart">Ajouter au Panier</button>
-                <button class="btn-modal-buy">Acheter</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openModal(title, price, imgSrc, storageOptions) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('modalImg').src = imgSrc;
-
-            const storageGroup = document.getElementById('modalStorageGroup');
-            storageGroup.innerHTML = '';
-            storageOptions.forEach((option, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'chip-btn' + (index === 0 ? ' active' : '');
-                btn.innerText = option;
-                btn.onclick = function() {
-                    const siblings = storageGroup.getElementsByClassName('chip-btn');
-                    for(let s of siblings) s.classList.remove('active');
-                    this.classList.add('active');
-                };
-                storageGroup.appendChild(btn);
-            });
-
-            document.getElementById('productModal').classList.add('active');
-        }
-
-        function closeModal(event) {
-            document.getElementById('productModal').classList.remove('active');
-        }
-
-        function selectColor(element) {
-            const dots = element.parentElement.getElementsByClassName('color-dot');
-            for(let dot of dots) dot.classList.remove('active');
-            element.classList.add('active');
-        }
-    </script>
-
-</body>
-</html>
+                <div><h3 class="product-title">iPhone 14</h3><p class="product-subtitle">
 
